@@ -30,6 +30,9 @@ Route::get('/products/{id}', function ($id) {
     return view('product',compact('product'));
 });
 
+Route::get('/',function (){
+    return redirect('home');
+});
 Route::get('/home',[FrontendController::class, 'home']);
 Route::get('/about','App\Http\Controllers\FrontendController@about');
 Route::get('/contact',[FrontendController::class, 'contact']);
