@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\FrontendController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,12 +38,6 @@ Route::get('/products/{id}', function ($id) {
     return view('product',compact('product'));
 });
 
-Route::get('/home',function (){
-   return view('front_end.home');
-});
-Route::get('/about',function (){
-    return view('front_end.about');
-});
-Route::get('/contact',function (){
-    return view('front_end.contact');
-});
+Route::get('/home',[FrontendController::class, 'home']);
+Route::get('/about','App\Http\Controllers\FrontendController@about');
+Route::get('/contact',[FrontendController::class, 'contact']);
